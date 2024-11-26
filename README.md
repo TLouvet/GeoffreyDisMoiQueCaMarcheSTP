@@ -1,4 +1,4 @@
-#Projet qui sert à rien - Etapes d'installation
+# Projet qui sert à rien - Etapes d'installation
 
 - Cloner le projet
 - Se positionner dans le dossier
