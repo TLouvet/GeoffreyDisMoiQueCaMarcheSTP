@@ -23,7 +23,21 @@ type MultipleData = {
 // Rating moyen par compagnie -> Bar chart
 // Rating moyen par type de voyage -> Bar chart
 // Proportion de voyageurs satisfait par compagnie -> Pie chart
+function satisfiedUsersByCompany() {
+  return data.reduce<any>((acc, curr) => {
+    if (!acc[curr.company]) {
+      acc[curr.company] = 0;
+    }
+
+    if (curr.satisfied) {
+      acc[curr.company]++;
+    }
+
+    return acc;
+  }, {});
+}
 // Proportion de voyageurs satisfait par destination -> Pie chart
+// Membres vs non membres -> Pie chart
 
 @Component({
   selector: 'app-root',
@@ -39,8 +53,9 @@ export class AppComponent {
   step4Result: SingleData = [];
   step5Result: SingleData = [];
   step6Result: SingleData = [];
+  stepXResult: SingleData = [];
 
-  private toSingleData = (data: any) =>
+  private toSingleData = (data: Record<string, number>) =>
     Object.entries(data).map(([name, value]) => ({ name, value }));
   private toMultipleData = (serie: string, data: any) => {
     return [
@@ -77,6 +92,7 @@ export class AppComponent {
     this.step5Result = this.step5();
     this.step6Result = this.step6();
     console.log('step6', this.step6Result);
+    this.stepXResult = this.toSingleData(satisfiedUsersByCompany());
   }
 
   view: [number, number] = [700, 200];
