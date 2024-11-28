@@ -17,6 +17,14 @@ type MultipleData = {
   series: SingleData;
 }[];
 
+// Idées en plus
+// Cout moyen par destination -> Bar chart
+// Rating moyen par destination -> Bar chart
+// Rating moyen par compagnie -> Bar chart
+// Rating moyen par type de voyage -> Bar chart
+// Proportion de voyageurs satisfait par compagnie -> Pie chart
+// Proportion de voyageurs satisfait par destination -> Pie chart
+
 @Component({
   selector: 'app-root',
   standalone: true,
